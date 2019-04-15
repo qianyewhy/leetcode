@@ -21,7 +21,7 @@ class EagerSingleton {
     //类初始化就加载对象，加载慢，但是获取对象快
     private static EagerSingleton eagerinstance = new EagerSingleton();//类加载时初始化
     //保证一个类只能初始化一次
-    public EagerSingleton(){}
+    private EagerSingleton(){}
     public static EagerSingleton getInstance(){
         return eagerinstance;
     }
@@ -52,7 +52,7 @@ class Singleton{
         LazySingleton s2 = LazySingleton.getInstance();
         System.out.println("是同一个对象吗"+(s1==s2));
 
-        EagerSingleton e3 = new EagerSingleton();
+      //  EagerSingleton e3 = new EagerSingleton();
 
 
     }
