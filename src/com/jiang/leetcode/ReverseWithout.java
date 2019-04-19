@@ -1,6 +1,7 @@
 package com.jiang.leetcode;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Created by jiangxin on 2019/4/18.
@@ -38,9 +39,31 @@ public class ReverseWithout {
         return b;
     }
 
+    public static String reverse1(String s){
+        Stack stack = new Stack();
+        int startindex=0;
+        for (int i=0;i<s.length();i++){
+            if (s.charAt(i)=='.'||s.charAt(i)=='\\'){
+                stack.push(s.substring(startindex,i));
+                stack.push(s.charAt(i));
+                startindex=i+1;
+            }
+            if (i==s.length()-1&&s.charAt(i)!='.'&&s.charAt(i)!='\\'){
+                stack.push(s.substring(startindex,s.length()));
+            }
+
+        }
+        String b="";
+        while (!stack.empty()){
+            b+=stack.pop();
+        }
+        return b;
+    }
+
     public static void main(String[] args) {
         String s="www.tou\\b\\tiao.com";
-        String b = reverse(s);
+       // String b = reverse(s);
+        String b = reverse1(s);
         System.out.println(b);
     }
 
