@@ -19,14 +19,25 @@ public class PrintListReverse {
         ListNode node3 = new ListNode(3);
         node1.next = node2;
         node2.next = node3;
+        PrintListReverse p = new PrintListReverse();
+
+//        while (node1!=null){
+//            //if (node1.next!=null){
+//                System.out.println(node1.data);
+//                node1=node1.next;
+//           // }
+//        }
 
         //利用栈的非递归实现
-        printListReverse(node1);
+//        printListReverse(node1);
+//
+//        System.out.println("******************");
+//
+//        //递归实现
+//        printListReverseRc(node1);
+//        System.out.println("******************");
+        p.reverseList(node1);
 
-        System.out.println("******************");
-
-        //递归实现
-        printListReverseRc(node1);
     }
     //利用栈的非递归实现
     public static void printListReverse(ListNode headNode) {
@@ -50,6 +61,17 @@ public class PrintListReverse {
             System.out.println(headNode.data);
         }
     }
+
+    public ListNode reverseList(ListNode head) {
+       if (head==null||head.next==null){
+           return head;
+       }
+        ListNode l=reverseList(head.next);
+        l.next=head;
+        return head;
+    }
+
+
 }
 
 
