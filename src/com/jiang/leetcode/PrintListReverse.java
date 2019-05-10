@@ -43,7 +43,7 @@ public class PrintListReverse {
     public static void printListReverse(ListNode headNode) {
         Stack stack = new Stack();
         while (headNode != null) {
-            stack.push(headNode.data);
+            stack.push(headNode.val);
             headNode=headNode.next;
         }
         while (!stack.empty()){
@@ -58,7 +58,7 @@ public class PrintListReverse {
             if (headNode.next!=null){
                 printListReverseRc(headNode.next);
             }
-            System.out.println(headNode.data);
+            System.out.println(headNode.val);
         }
     }
 
@@ -77,10 +77,10 @@ public class PrintListReverse {
 
 
 class ListNode{
-    int data;
+    int val;
     ListNode next;
     ListNode(int x){
-        data = x;
+        val = x;
         next = null;
     }
 }

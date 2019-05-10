@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class DeleteNode {
     public void deletecode(ListNode node){
-        node.data=node.next.data;
+        node.val=node.next.val;
         node.next=node.next.next;
     }
 

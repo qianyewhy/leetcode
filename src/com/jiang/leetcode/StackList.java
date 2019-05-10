@@ -25,8 +25,8 @@ public class StackList {
             System.out.println("栈空啦");
             return -1;
         }
-        System.out.println(top.data);
-        int temp = top.data;
+        System.out.println(top.val);
+        int temp = top.val;
         top = top.next;
         return temp;
     }
@@ -35,8 +35,8 @@ public class StackList {
         if (isempty()){
            return -1;
         }
-        System.out.println(top.data);
-        return top.data;
+        System.out.println(top.val);
+        return top.val;
     }
     //判断栈是否为空
     public boolean isempty(){
