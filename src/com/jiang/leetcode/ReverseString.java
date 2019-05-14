@@ -32,11 +32,46 @@ public class ReverseString {
         return b;
     }
 
+    public void reverseString(char[] s) {
+        int length=s.length;
+        for (int i=0;i<length/2;i++){
+            char temp=s[i];
+            s[i]=s[length-1-i];
+            s[length-1-i]=temp;
+        }
+    }
+
+
+    public String reverseWords(String s) {
+        String[] a=s.split(" ");
+        String b="";
+        for (int i=0;i<a.length;i++){
+            if (a[i]!=" "){
+                reverse(a[i]);
+                b+=a[i];
+
+            }else {
+                b+=" ";
+            }
+
+        }
+       // s=String.valueOf(a);
+
+        return b;
+
+    }
+
+
+
     public static void main(String[] args) {
-        String a="helloword";
+        String a="Let's take LeetCode contest";
 //        a=reverse(a);
 //        System.out.println("a: "+a);
-        a=reverse1(a);
-        System.out.println("b: "+a);
+       // a=reverse1(a);
+      //  char[] a={'h','e','l','l','o','w','o','r','d'};
+        ReverseString r=new ReverseString();
+       // r.reverseString(a);
+        String s=r.reverseWords(a);
+        System.out.println(s);
     }
 }

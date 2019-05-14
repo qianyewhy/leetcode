@@ -69,6 +69,31 @@ public class AddTwoNumbers {
         return finalhead;
     }
 
+
+
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2){
+        ListNode listNode=new ListNode(0);
+        ListNode p=new ListNode(0);
+        p=listNode;
+        int sum=0;
+
+        while (l1!=null||l2!=null||sum!=0){
+            if (l1!=null){
+                sum+=l1.val;
+                l1=l1.next;
+            }
+            if (l2!=null){
+                sum+=l2.val;
+                l2=l2.next;
+            }
+            p.next=new ListNode(sum%10);
+            sum=sum/10;
+            p=p.next;
+        }
+        return listNode.next;
+    }
+
+
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
 //        ListNode node2 = new ListNode(4);
@@ -83,7 +108,7 @@ public class AddTwoNumbers {
 //        node4.next = node5;
 
         AddTwoNumbers a=new AddTwoNumbers();
-        ListNode sum=a.addTwoNumbers(l1,l2);
+        ListNode sum=a.addTwoNumbers1(l1,l2);
         while (sum!=null){
             System.out.println(sum.val);
             sum=sum.next;
